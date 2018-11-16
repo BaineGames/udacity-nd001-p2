@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <title>Matching Game</title>
     <meta name="description" content="">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
-        crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
     <link rel="stylesheet" href="css/app.css">
 </head>
@@ -19,6 +19,7 @@
         </header>
 
         <section class="score-panel">
+            <h2>Stats</h2>
             <ul class="stars">
                 <li><i class="fa fa-star"></i></li>
                 <li><i class="fa fa-star"></i></li>
@@ -35,7 +36,12 @@
         <ul class="deck">
         </ul>
 
-        <section class='popup hide'></section>
+        <section class='popup hide centered'>
+            <h3>Congratulations!</h3>
+            <p>You completed the game in <span class="time-complete"></span> with a <span class="star-complete"></span>
+                star rating!</p>
+            <div class='btnRestart restart'>Play Again?</div>
+        </section>
     </div>
 
     <script src="js/app.js"></script>

@@ -3,14 +3,16 @@
  */
 
 // variable setup
-let deck,stars;
+
+
 // all brand icons from the neweset FA pack v5.5.0
 const ICON_SET = Object.freeze(["500px", "accessible-icon", "accusoft", "acquisitions-incorporated", "adn", "adversal", "affiliatetheme", "algolia", "alipay", "amazon", "amazon-pay", "amilia", "android", "angellist", "angrycreative", "angular", "app-store", "app-store-ios", "apper", "apple", "apple-pay", "asymmetrik", "audible", "autoprefixer", "avianex", "aviato", "aws", "bandcamp", "behance", "behance-square", "bimobject", "bitbucket", "bitcoin", "bity", "black-tie", "blackberry", "blogger", "blogger-b", "bluetooth", "bluetooth-b", "btc", "buromobelexperte", "buysellads", "cc-amazon-pay", "cc-amex", "cc-apple-pay", "cc-diners-club", "cc-discover", "cc-jcb", "cc-mastercard", "cc-paypal", "cc-stripe", "cc-visa", "centercode", "chrome", "cloudscale", "cloudsmith", "cloudversify", "codepen", "codiepie", "connectdevelop", "contao", "cpanel", "creative-commons", "creative-commons-by", "creative-commons-nc", "creative-commons-nc-eu", "creative-commons-nc-jp", "creative-commons-nd", "creative-commons-pd", "creative-commons-pd-alt", "creative-commons-remix", "creative-commons-sa", "creative-commons-sampling", "creative-commons-sampling-plus", "creative-commons-share", "creative-commons-zero", "critical-role", "css3", "css3-alt", "cuttlefish", "d-and-d", "d-and-d-beyond", "dashcube", "delicious", "deploydog", "deskpro", "dev", "deviantart", "digg", "digital-ocean", "discord", "discourse", "dochub", "docker", "draft2digital", "dribbble", "dribbble-square", "dropbox", "drupal", "dyalog", "earlybirds", "ebay", "edge", "elementor", "ello", "ember", "empire", "envira", "erlang", "ethereum", "etsy", "expeditedssl", "facebook", "facebook-f", "facebook-messenger", "facebook-square", "fantasy-flight-games", "firefox", "first-order", "first-order-alt", "firstdraft", "flickr", "flipboard", "fly", "font-awesome", "font-awesome-alt", "font-awesome-flag", "fonticons", "fonticons-fi", "fort-awesome", "fort-awesome-alt", "forumbee", "foursquare", "free-code-camp", "freebsd", "fulcrum", "galactic-republic", "galactic-senate", "get-pocket", "gg", "gg-circle", "git", "git-square", "github", "github-alt", "github-square", "gitkraken", "gitlab", "gitter", "glide", "glide-g", "gofore", "goodreads", "goodreads-g", "google", "google-drive", "google-play", "google-plus", "google-plus-g", "google-plus-square", "google-wallet", "gratipay", "grav", "gripfire", "grunt", "gulp", "hacker-news", "hacker-news-square", "hackerrank", "hips", "hire-a-helper", "hooli", "hornbill", "hotjar", "houzz", "html5", "hubspot", "imdb", "instagram", "internet-explorer", "ioxhost", "itunes", "itunes-note", "java", "jedi-order", "jenkins", "joget", "joomla", "js", "js-square", "jsfiddle", "kaggle", "keybase", "keycdn", "kickstarter", "kickstarter-k", "korvue", "laravel", "lastfm", "lastfm-square", "leanpub", "less", "line", "linkedin", "linkedin-in", "linode", "linux", "lyft", "magento", "mailchimp", "mandalorian", "markdown", "mastodon", "maxcdn", "medapps", "medium", "medium-m", "medrt", "meetup", "megaport", "microsoft", "mix", "mixcloud", "mizuni", "modx", "monero", "napster", "neos", "nimblr", "nintendo-switch", "node", "node-js", "npm", "ns8", "nutritionix", "odnoklassniki", "odnoklassniki-square", "old-republic", "opencart", "openid", "opera", "optin-monster", "osi", "page4", "pagelines", "palfed", "patreon", "paypal", "penny-arcade", "periscope", "phabricator", "phoenix-framework", "phoenix-squadron", "php", "pied-piper", "pied-piper-alt", "pied-piper-hat", "pied-piper-pp", "pinterest", "pinterest-p", "pinterest-square", "playstation", "product-hunt", "pushed", "python", "qq", "quinscape", "quora", "r-project", "ravelry", "react", "reacteurope", "readme", "rebel", "red-river", "reddit", "reddit-alien", "reddit-square", "renren", "replyd", "researchgate", "resolving", "rev", "rocketchat", "rockrms", "safari", "sass", "schlix", "scribd", "searchengin", "sellcast", "sellsy", "servicestack", "shirtsinbulk", "shopware", "simplybuilt", "sistrix", "sith", "skyatlas", "skype", "slack", "slack-hash", "slideshare", "snapchat", "snapchat-ghost", "snapchat-square", "soundcloud", "speakap", "spotify", "squarespace", "stack-exchange", "stack-overflow", "staylinked", "steam", "steam-square", "steam-symbol", "sticker-mule", "strava", "stripe", "stripe-s", "studiovinari", "stumbleupon", "stumbleupon-circle", "superpowers", "supple", "teamspeak", "telegram", "telegram-plane", "tencent-weibo", "the-red-yeti", "themeco", "themeisle", "think-peaks", "trade-federation", "trello", "tripadvisor", "tumblr", "tumblr-square", "twitch", "twitter", "twitter-square", "typo3", "uber", "uikit", "uniregistry", "untappd", "usb", "ussunnah", "vaadin", "viacoin", "viadeo", "viadeo-square", "viber", "vimeo", "vimeo-square", "vimeo-v", "vine", "vk", "vnv", "vuejs", "weebly", "weibo", "weixin", "whatsapp", "whatsapp-square", "whmcs", "wikipedia-w", "windows", "wix", "wizards-of-the-coast", "wolf-pack-battalion", "wordpress", "wordpress-simple", "wpbeginner", "wpexplorer", "wpforms", "wpressr", "xbox", "xing", "xing-square", "y-combinator", "yahoo", "yandex", "yandex-international", "yelp", "yoast", "youtube", "youtube-square", "zhihu"]);
 
 //buld html for each item and add to document fragment
 let deck_container;
+let deck;
+let stars;
 let cardsOpened = [];
-
 let preventClick = false;
 let moveCounter = 0;
 let matchCounter = 0;
@@ -36,7 +38,6 @@ function shuffle(array) {
     return array;
 }
 
-
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
@@ -51,8 +52,6 @@ function shuffle(array) {
 // open and show classes are needed for click actions
 // match is the class used for a winning pair
 
-
-
 document.addEventListener('DOMContentLoaded', function () {
     init();
 });
@@ -66,6 +65,8 @@ function init() {
     cardsOpened = [];
     matchCounter = 0;
 
+    document.querySelector('.popup').classList.add("hide");
+    preventClick = false;
 
     //empty deck in case of reset
     while (deck_container.firstChild) {
@@ -73,7 +74,7 @@ function init() {
     }
 
     //reset move counter
-    moveCounter=0;
+    moveCounter = 0;
     document.querySelector(".moves").textContent = moveCounter;
 
     //reset timer
@@ -83,8 +84,8 @@ function init() {
     timerDisplay.textContent = "Timer - 00:00:00";
 
     //reset stars
-    for( let star of stars.children){
-        star.style.color = "black";
+    for (let star of stars.children) {
+        star.classList.remove("starMissed");
     }
 
     let temp_list = ICON_SET.slice();
@@ -122,13 +123,11 @@ function init() {
 
     deck = document.querySelectorAll(".card");
 
-
-
     deck.forEach(function (card) {
         card.addEventListener("click", function (e) {
-            if(!timerStart){
+            if (!timerStart) {
                 timerStart = 1;
-                gameStep = setInterval(runTimer,1000);
+                gameStep = setInterval(runTimer, 1000);
             }
             if (!preventClick) {
                 if (cardsOpened.indexOf(card) != -1) {
@@ -150,17 +149,18 @@ function init() {
         });
     });
 
-    let reset = document.querySelector(".restart");
+    let reset = document.querySelectorAll(".restart");
 
-    reset.addEventListener("click",function(){
-        init();
-    });
+    for (let item of reset) {
+        item.addEventListener("click", function () {
+            init();
+        });
+    }
 }
 
-function runTimer(){
+function runTimer() {
     gameTimer++;
     timerDisplay.textContent = `Timer - ${(new Date(gameTimer * 1000)).toUTCString().match(/(\d\d:\d\d:\d\d)/)[0]}`;
-    
 }
 
 function checkMatch() {
@@ -180,7 +180,7 @@ function checkMatch() {
 
 function processTurn() {
 
-    
+
     let cardsToHide = document.querySelectorAll(".card.open.show");
     cardsToHide.forEach(function (card) {
         card.classList.remove("open");
@@ -189,31 +189,37 @@ function processTurn() {
     cardsOpened = [];
     preventClick = false;
     incrementMove();
-    
 }
 
-function winGame(){
+function winGame() {
     clearInterval(gameStep);
-    alert("YOU WON!");
+    let timeCompleteDisplay = document.querySelector(".time-complete");
+    let starCompleteDisplay = document.querySelector(".star-complete");
+    timeCompleteDisplay.textContent = (new Date(gameTimer * 1000)).toUTCString().match(/(\d\d:\d\d:\d\d)/)[0];
+
+    let starsMissed = document.querySelectorAll(".starMissed").length;
+    starCompleteDisplay.textContent = `${3 - starsMissed}`;
+    preventClick = true;
+    document.querySelector(".popup").classList.remove("hide");
 }
 
 function incrementMove() {
     moveCounter++;
     document.querySelector(".moves").textContent = moveCounter;
-    //setting color of starts to transparent on purpose to preserve layout and positions
+
     if (moveCounter == 15) {
-        stars.children[0].style.color = "transparent";
+        stars.children[0].classList.add("starMissed");
     }
 
     if (moveCounter == 25) {
-        stars.children[1].style.color = "transparent";
-    }
-    
-    if(moveCounter == 35) {
-        stars.children[2].style.color = "transparent";
+        stars.children[1].classList.add("starMissed");
     }
 
-    if(matchCounter == 8){
+    if (moveCounter == 35) {
+        stars.children[2].classList.add("starMissed");
+    }
+
+    if (matchCounter == 8) {
         winGame();
     }
 }
