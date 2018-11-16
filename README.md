@@ -16,4 +16,5 @@ Once you have found all matching pairs, you will see your stats rating you with 
 
 # Dependencies (included in game)
 Coda Font from Google
+
 Font Awesome 5.5.0 CSS 
